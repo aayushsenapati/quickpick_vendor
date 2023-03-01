@@ -1,9 +1,12 @@
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
+const cors = require('cors');
 
 const app = express();
 const port = 3001;
 
+
+app.use(cors());
 app.get('/data/:restaurant', async (req, res) => {
     const client = new MongoClient('mongodb+srv://quickPick:quickPick@quickpick.kqhqbdn.mongodb.net/test', { useUnifiedTopology: true });
     try {
